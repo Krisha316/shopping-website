@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order</title>
+    <link href="jewels.css" rel="stylesheet">
+</head>
+<body style="background-color: rgb(226, 226, 216);">
+    <nav style="text-align: center;" class="navbar">
+        <a href="jewels.html" class="navbar-brand" style="font-family:Georgia, 'Times New Roman', Times, serif;"><b>JEWELS</b></a><br>
+        <a href="register.html" class="links" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;" target="_blank">Register & Order</a>
+    </nav>  
+    <br>
+    <br>
+    <h1 style="text-align: center; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;background-color: rgb(240, 240, 231);">ORDER PAGE</h1>
+    <br> 
+    <br>
+    <label for="ProductsSelected">Products:</label>
+    <select id="ProductsSelected">
+        <option value="150"> Pink Gems - $150 </option>
+        <option value="100"> Blue bracelet - $100 </option>
+        <option value="200"> Crystal Time - $200 </option>
+        <option value="70"> Black Swan - $70 </option>
+        <option value="120"> Roses - $120 </option>
+        <option value="140"> Droplet Necklace - $140</option>
+        <option value="80"> Swan bracelet - $80</option>
+        <option value="250"> Aura watch - $250</option>
+        <option value="120"> Pink Swan - $120</option>
+    </select>
+
+    <input type="number" id="quantityInput" placeholder="Quantity" min="1">
+    <button onclick="addProduct()">Add to Order</button>
+    <br><br>
+
+    <div id="orderSummary">
+        <h3>Order Summary</h3>
+        <ul id="orderList"></ul>
+        <p><b>Total Price:</b> $<span id="totalPrice">0</span></p>
+        <button onclick="orderNow()" type="submit" >Order Now</button>
+    </div>
+    <script>
+        let totalPrice = 0;
+        function addProduct() {
+            const productSelect = document.getElementById("ProductsSelected");
+            const quantityInput = document.getElementById("quantityInput");
+            const orderSummary = document.getElementById("orderSummary");
+            const orderList = document.getElementById("orderList");
+            const productPrice = parseFloat(productSelect.value);
+            const quantity = parseInt(quantityInput.value);
+            const itemTotal = productPrice * quantity;
+            totalPrice += itemTotal;
+            document.getElementById("totalPrice").textContent = totalPrice;
+            orderSummary.style.display = "block";
+
+            quantityInput.value = '';
+        }
+
+        function orderNow(){
+            document.write("Thank you for ordering with us","<br>");
+            document.write("Your order has been placed","<br>");
+            document.write("Your order will around in two weeks time","<br>")
+            
+        }
+        
+    </script>
+
+</body>
+</html> 
